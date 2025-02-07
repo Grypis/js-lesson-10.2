@@ -23,15 +23,28 @@ const promise = new Promise((resolve, reject) => {
 });
 
 //! ====================================
-promise.then(onFulfilled, onRejected);
+/* promise.then(onFulfilled, onRejected);
 
 function onFulfilled(message) {
   console.log(message);
-
   console.log('Yummy');
 }
 function onRejected(message) {
   console.log(message);
-
   console.log('Refund');
-}
+} */
+
+//! ====================================
+Promise.then(message => {
+  console.log(message);
+  console.log('Yummy');
+})
+  .catch(message => {
+    console.log(message);
+    console.log('Reject');
+  })
+  .finally(() => {
+    console.log('Have a good day');
+    console.log('Bless you');
+    console.log('Happy day');
+  });
