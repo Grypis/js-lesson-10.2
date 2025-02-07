@@ -11,16 +11,27 @@ console.log(promise); */
 //! ====================================
 const promise = new Promise((resolve, reject) => {
   setTimeout(() => {
-    resolve();
-  }, 3000);
+    const rand = Math.round(Math.random());
+    const isActive = Boolean(rand);
+
+    if (isActive) {
+      resolve('Борщ');
+    } else {
+      reject('Гроші');
+    }
+  }, 100);
 });
 
 //! ====================================
 promise.then(onFulfilled, onRejected);
 
-function onFulfilled() {
+function onFulfilled(message) {
+  console.log(message);
+
   console.log('Yummy');
 }
-function onRejected() {
+function onRejected(message) {
+  console.log(message);
+
   console.log('Refund');
 }
